@@ -1,0 +1,161 @@
+cluster,species,centroid_value,direction,health_rank,top_food_group,top_food_r,neuroactive_pathways
+0,Streptococcus_thermophilus,0.16704664235873878,high,72.066667,Dairy,0.254092808318387,tryptophan_serotonin
+0,Bifidobacterium_animalis,0.13888677392709955,high,28.933333,Dairy,0.199389710233721,GABA
+0,Firmicutes_bacterium_CAG_95,0.07324463512092487,high,9.670833,Nuts,0.128036928853606,none
+0,Bacteroides_ovatus,0.06830172975546323,high,92.329167,Legumes,0.135178280894471,none
+0,Fretibacterium_fastidiosum,0.06293137134726054,high,47.566667,Sweets_desserts,0.0884255808164977,none
+0,Anaerotruncus_colihominis,-0.07512215700556954,low,164.9125,Nuts,-0.141722229200949,none
+0,Clostridium_bolteae,-0.06838013841980731,low,166.954167,Nuts,-0.133774631772403,pro_inflammatory
+0,Flavonifractor_plautii,-0.06209586030777074,low,167.879167,Nuts,-0.120407565602468,pro_inflammatory
+0,Holdemania_filiformis,-0.05976054806142925,low,128.804167,Dairy,-0.0813111400898113,none
+0,Clostridium_bolteae_CAG_59,-0.05886948334818205,low,160.970833,Egg,-0.101445916839653,pro_inflammatory
+1,Roseburia_hominis,0.10070604407942915,high,39.3625,Nuts,0.197077948671331,"butyrate_SCFA, tryptophan_serotonin"
+1,Agathobaculum_butyriciproducens,0.09806087095399928,high,65.416667,Nuts,0.20679488303088,butyrate_SCFA
+1,Firmicutes_bacterium_CAG_95,0.09632697924793612,high,9.670833,Nuts,0.128036928853606,none
+1,Eubacterium_eligens,0.09442547442680876,high,20.875,Egg,0.13364491427998,butyrate_SCFA
+1,Roseburia_sp_CAG_182,0.09206836462686199,high,14.641667,Vegetables,0.136567696026626,butyrate_SCFA
+1,Pseudoflavonifractor_sp_An184,-0.09653425331054523,low,128.041667,Nuts,-0.137394725634246,none
+1,Firmicutes_bacterium_CAG_94,-0.09244719535948034,low,134.8375,Tea_coffee,0.157708300528003,none
+1,Clostridium_spiroforme,-0.09083844229330862,low,160.258333,Fruits,-0.136690462118714,none
+1,Anaerotruncus_colihominis,-0.08625700243342521,low,164.9125,Nuts,-0.141722229200949,none
+1,Escherichia_coli,-0.08267718569613314,low,152.891667,Nuts,-0.153273118954996,"dopamine_catecholamine, pro_inflammatory"
+2,Clostridium_saccharolyticum,0.07254267795864615,high,129.6125,Meat,0.180936466377252,none
+2,Anaeromassilibacillus_sp_An250,0.07048213518797353,high,115.658333,Nuts,-0.164474606163262,none
+2,Ruthenibacterium_lactatiformans,0.06790188954852222,high,142.4625,Nuts,-0.18057509535161,none
+2,Clostridium_leptum,0.06555694227258949,high,142.283333,Sweets_desserts,0.207956271992387,none
+2,Firmicutes_bacterium_CAG_94,0.0620320865148876,high,134.8375,Tea_coffee,0.157708300528003,none
+2,Bifidobacterium_animalis,-0.07087883326408792,low,28.933333,Dairy,0.199389710233721,GABA
+2,Anaerostipes_hadrus,-0.06598991961902824,low,67.3875,Potatoes,-0.14156575590367,butyrate_SCFA
+2,Haemophilus_parainfluenzae,-0.06040016551269128,low,10.091667,Sugar_sweetened_beverages,-0.123334842705267,none
+2,Veillonella_sp_T11011_6,-0.057105974190411635,low,36.241667,Animal_fats,-0.107646337130285,none
+2,Roseburia_sp_CAG_182,-0.055796479695000414,low,14.641667,Vegetables,0.136567696026626,butyrate_SCFA
+3,Clostridium_leptum,0.1177715521972365,high,142.283333,Sweets_desserts,0.207956271992387,none
+3,Ruthenibacterium_lactatiformans,0.0786008761183341,high,142.4625,Nuts,-0.18057509535161,none
+3,Firmicutes_bacterium_CAG_94,0.07013599672560447,high,134.8375,Tea_coffee,0.157708300528003,none
+3,Oscillibacter_sp_CAG_241,0.05986645596090294,high,74.933333,Sugar_sweetened_beverages,0.106808927858175,none
+3,Firmicutes_bacterium_CAG_110,0.059581469208529275,high,42.366667,Sweets_desserts,0.121647293824018,none
+3,Bifidobacterium_animalis,-0.06303434419861188,low,28.933333,Dairy,0.199389710233721,GABA
+3,Bacteroides_finegoldii,-0.060434452556258136,low,71.479167,Sweets_desserts,-0.10256516852879,none
+3,Streptococcus_australis,-0.05759629006372016,low,81.141667,Sugar_sweetened_beverages,-0.135439583850153,none
+3,Veillonella_rogosae,-0.05448517408758696,low,39.245833,Sugar_sweetened_beverages,-0.151937366696404,none
+3,Anaerostipes_hadrus,-0.05230959301493418,low,67.3875,Potatoes,-0.14156575590367,butyrate_SCFA
+4,Clostridium_sp_CAG_58,0.06219658843721411,high,154.358333,Meat,0.199359209998771,none
+4,Bacteroides_sp_CAG_144,0.055017659949027256,high,80.75,Vegetable_oils,0.103987563803826,none
+4,Proteobacteria_bacterium_CAG_139,0.04629471797153568,high,85.329167,Meat,0.109103445399859,none
+4,Firmicutes_bacterium_CAG_95,0.045854759903521725,high,9.670833,Nuts,0.128036928853606,none
+4,Methanobrevibacter_smithii,0.04547694249416867,high,70.1875,Meat,0.0888564776285133,none
+4,Veillonella_sp_T11011_6,-0.043954310467094776,low,36.241667,Animal_fats,-0.107646337130285,none
+4,Bifidobacterium_longum,-0.03946269016206978,low,126.570833,Sweets_desserts,0.133841889914256,"GABA, gut_barrier"
+4,Gemella_sanguinis,-0.03776589661276111,low,142.116667,Fruits,-0.0936000482423773,none
+4,Haemophilus_parainfluenzae,-0.03734571813764193,low,10.091667,Sugar_sweetened_beverages,-0.123334842705267,none
+4,Bifidobacterium_adolescentis,-0.03718836311720233,low,99.8375,Fruits,0.0933479778511316,"GABA, gut_barrier"
+5,Firmicutes_bacterium_CAG_95,0.08243949245418354,high,9.670833,Nuts,0.128036928853606,none
+5,Roseburia_hominis,0.07660272859989305,high,39.3625,Nuts,0.197077948671331,"butyrate_SCFA, tryptophan_serotonin"
+5,Eubacterium_eligens,0.07417150522379953,high,20.875,Egg,0.13364491427998,butyrate_SCFA
+5,Agathobaculum_butyriciproducens,0.07120487888052376,high,65.416667,Nuts,0.20679488303088,butyrate_SCFA
+5,Roseburia_sp_CAG_182,0.06630392033812989,high,14.641667,Vegetables,0.136567696026626,butyrate_SCFA
+5,Clostridium_innocuum,-0.06680507632558609,low,163.5625,Nuts,-0.137261983684451,pro_inflammatory
+5,Anaerotruncus_colihominis,-0.06553141919601645,low,164.9125,Nuts,-0.141722229200949,none
+5,Clostridium_symbiosum,-0.06314535043845894,low,165.795833,Nuts,-0.160136898116365,pro_inflammatory
+5,Escherichia_coli,-0.06240744840329733,low,152.891667,Nuts,-0.153273118954996,"dopamine_catecholamine, pro_inflammatory"
+5,Pseudoflavonifractor_sp_An184,-0.05874601050146111,low,128.041667,Nuts,-0.137394725634246,none
+6,Firmicutes_bacterium_CAG_95,0.062187836162347576,high,9.670833,Nuts,0.128036928853606,none
+6,Eubacterium_eligens,0.052474612902262394,high,20.875,Egg,0.13364491427998,butyrate_SCFA
+6,Agathobaculum_butyriciproducens,0.04548594228514111,high,65.416667,Nuts,0.20679488303088,butyrate_SCFA
+6,Roseburia_hominis,0.0452725869102904,high,39.3625,Nuts,0.197077948671331,"butyrate_SCFA, tryptophan_serotonin"
+6,Oscillibacter_sp_PC13,0.041865735144214565,high,20.466667,Vegetable_oils,0.147883455809885,none
+6,Eggerthella_lenta,-0.03994630819246339,low,154.570833,Nuts,-0.11050284424734,pro_inflammatory
+6,Clostridium_innocuum,-0.03925340633440133,low,163.5625,Nuts,-0.137261983684451,pro_inflammatory
+6,Escherichia_coli,-0.03920464286323058,low,152.891667,Nuts,-0.153273118954996,"dopamine_catecholamine, pro_inflammatory"
+6,Clostridium_symbiosum,-0.03705420238258507,low,165.795833,Nuts,-0.160136898116365,pro_inflammatory
+6,Anaerotruncus_colihominis,-0.03655751196399759,low,164.9125,Nuts,-0.141722229200949,none
+7,Bifidobacterium_pseudocatenulatum,0.03544837618756015,high,75.925,Legumes,0.105151097215937,GABA
+7,Streptococcus_parasanguinis,0.03466133313672765,high,63.779167,Sweets_desserts,0.0957776974935689,tryptophan_serotonin
+7,Agathobaculum_butyriciproducens,0.03435263987421108,high,65.416667,Nuts,0.20679488303088,butyrate_SCFA
+7,Clostridium_leptum,0.03381091526945501,high,142.283333,Sweets_desserts,0.207956271992387,none
+7,Faecalibacterium_prausnitzii,0.03329767967249424,high,27.65,Sugar_sweetened_beverages,-0.0993602510404081,"butyrate_SCFA, tryptophan_serotonin, gut_barrier"
+7,Clostridium_sp_CAG_242,-0.04447069255205059,low,70.425,Legumes,-0.12221841715218,none
+7,Streptococcus_australis,-0.04325803760701709,low,81.141667,Sugar_sweetened_beverages,-0.135439583850153,none
+7,Clostridium_bolteae,-0.034266734483640614,low,166.954167,Nuts,-0.133774631772403,pro_inflammatory
+7,Gemella_sanguinis,-0.028202633799562032,low,142.116667,Fruits,-0.0936000482423773,none
+7,Holdemania_filiformis,-0.02429509874294137,low,128.804167,Dairy,-0.0813111400898113,none
+8,Lawsonibacter_asaccharolyticus,0.13008175233335248,high,114.545833,Tea_coffee,0.380371431514554,none
+8,Roseburia_sp_CAG_309,0.08657440454201473,high,50.654167,Alcohol,0.122209903985785,butyrate_SCFA
+8,Oscillibacter_sp_PC13,0.0828229901544446,high,20.466667,Vegetable_oils,0.147883455809885,none
+8,Parabacteroides_goldsteinii,0.0824530763313074,high,60.016667,Alcohol,0.130778454884612,none
+8,Flavonifractor_sp_An100,0.07540836940824183,high,57.0125,Alcohol,0.100593600090222,none
+8,Haemophilus_parainfluenzae,-0.08261466089296388,low,10.091667,Sugar_sweetened_beverages,-0.123334842705267,none
+8,Clostridium_symbiosum,-0.07911386739617482,low,165.795833,Nuts,-0.160136898116365,pro_inflammatory
+8,Bifidobacterium_bifidum,-0.06922381333572697,low,131.5,Vegetables,-0.112607255463329,"GABA, gut_barrier"
+8,Clostridium_bolteae_CAG_59,-0.06627464042341788,low,160.970833,Egg,-0.101445916839653,pro_inflammatory
+8,Hungatella_hathewayi,-0.0638286570443794,low,136.75,Nuts,-0.0957553712458588,pro_inflammatory
+9,Lawsonibacter_asaccharolyticus,0.2118827982493513,high,114.545833,Tea_coffee,0.380371431514554,none
+9,Agathobaculum_butyriciproducens,0.09579611172652525,high,65.416667,Nuts,0.20679488303088,butyrate_SCFA
+9,Firmicutes_bacterium_CAG_94,0.07618248087797003,high,134.8375,Tea_coffee,0.157708300528003,none
+9,Roseburia_hominis,0.07326713753181814,high,39.3625,Nuts,0.197077948671331,"butyrate_SCFA, tryptophan_serotonin"
+9,Asaccharobacter_celatus,0.06673047870246679,high,85.1875,Tea_coffee,0.114770839438112,none
+9,Clostridium_innocuum,-0.08622866560821427,low,163.5625,Nuts,-0.137261983684451,pro_inflammatory
+9,Phascolarctobacterium_faecium,-0.07792993957739523,low,94.054167,Tea_coffee,-0.118887308865463,none
+9,Ruminococcus_gnavus,-0.06552661919109906,low,159.75,Nuts,-0.11356586819712,pro_inflammatory
+9,Clostridium_citroniae,-0.06481852208120935,low,139.7625,Tea_coffee,-0.0996731490048003,none
+9,Clostridium_symbiosum,-0.061386251177467765,low,165.795833,Nuts,-0.160136898116365,pro_inflammatory
+10,Eubacterium_eligens,0.10516672868012908,high,20.875,Egg,0.13364491427998,butyrate_SCFA
+10,Firmicutes_bacterium_CAG_95,0.09671238734130883,high,9.670833,Nuts,0.128036928853606,none
+10,Firmicutes_bacterium_CAG_170,0.07205852364230604,high,13.966667,Egg,0.102403437275483,none
+10,Oscillibacter_sp_57_20,0.0674592241029875,high,12.191667,Nuts,0.169334248980711,none
+10,Agathobaculum_butyriciproducens,0.06644189754506521,high,65.416667,Nuts,0.20679488303088,butyrate_SCFA
+10,Bifidobacterium_catenulatum,-0.08445810530864918,low,136.283333,Sweets_desserts,0.147410718658536,GABA
+10,Clostridium_bolteae_CAG_59,-0.07469933116427777,low,160.970833,Egg,-0.101445916839653,pro_inflammatory
+10,Clostridium_symbiosum,-0.07224797345872094,low,165.795833,Nuts,-0.160136898116365,pro_inflammatory
+10,Bifidobacterium_longum,-0.0722406855962126,low,126.570833,Sweets_desserts,0.133841889914256,"GABA, gut_barrier"
+10,Flavonifractor_plautii,-0.06486195897686958,low,167.879167,Nuts,-0.120407565602468,pro_inflammatory
+11,Clostridium_leptum,0.07798455372970589,high,142.283333,Sweets_desserts,0.207956271992387,none
+11,Ruthenibacterium_lactatiformans,0.06730200653844745,high,142.4625,Nuts,-0.18057509535161,none
+11,Alistipes_finegoldii,0.06703744864197655,high,111.8125,Meat,0.12306910948139,none
+11,Bacteroides_uniformis,0.06660554444960883,high,140.416667,Potatoes,0.106616235645178,none
+11,Lachnospira_pectinoschiza,0.0636672698931607,high,90.1125,Potatoes,0.0943959494633987,butyrate_SCFA
+11,Anaerostipes_hadrus,-0.06642341065865374,low,67.3875,Potatoes,-0.14156575590367,butyrate_SCFA
+11,Ruminococcus_lactaris,-0.06141162804136274,low,34.295833,Potatoes,-0.128728155988683,none
+11,Roseburia_sp_CAG_182,-0.05809837429199188,low,14.641667,Vegetables,0.136567696026626,butyrate_SCFA
+11,Bifidobacterium_animalis,-0.05605539448575318,low,28.933333,Dairy,0.199389710233721,GABA
+11,Collinsella_stercoris,-0.05556539997570067,low,113.3375,Vegetables,-0.0939820750483517,none
+12,Firmicutes_bacterium_CAG_95,0.04995796235568448,high,9.670833,Nuts,0.128036928853606,none
+12,Oscillibacter_sp_PC13,0.04254759867334874,high,20.466667,Vegetable_oils,0.147883455809885,none
+12,Flavonifractor_sp_An100,0.0401087411243758,high,57.0125,Alcohol,0.100593600090222,none
+12,Fretibacterium_fastidiosum,0.037253497792158044,high,47.566667,Sweets_desserts,0.0884255808164977,none
+12,Roseburia_sp_CAG_309,0.03634287451252793,high,50.654167,Alcohol,0.122209903985785,butyrate_SCFA
+12,Clostridium_symbiosum,-0.03347966098339437,low,165.795833,Nuts,-0.160136898116365,pro_inflammatory
+12,Ruminococcus_gnavus,-0.02969048766443311,low,159.75,Nuts,-0.11356586819712,pro_inflammatory
+12,Eggerthella_lenta,-0.02786816642542843,low,154.570833,Nuts,-0.11050284424734,pro_inflammatory
+12,Clostridium_bolteae_CAG_59,-0.02673917007068222,low,160.970833,Egg,-0.101445916839653,pro_inflammatory
+12,Escherichia_coli,-0.025220835124636243,low,152.891667,Nuts,-0.153273118954996,"dopamine_catecholamine, pro_inflammatory"
+13,Clostridium_leptum,0.08207349782550297,high,142.283333,Sweets_desserts,0.207956271992387,none
+13,Firmicutes_bacterium_CAG_94,0.07415904783489544,high,134.8375,Tea_coffee,0.157708300528003,none
+13,Ruthenibacterium_lactatiformans,0.06695655428830966,high,142.4625,Nuts,-0.18057509535161,none
+13,Anaeromassilibacillus_sp_An250,0.06240049452855506,high,115.658333,Nuts,-0.164474606163262,none
+13,Clostridium_saccharolyticum,0.05985270370532936,high,129.6125,Meat,0.180936466377252,none
+13,Veillonella_sp_T11011_6,-0.05448713389618497,low,36.241667,Animal_fats,-0.107646337130285,none
+13,Anaerostipes_hadrus,-0.053565451395953714,low,67.3875,Potatoes,-0.14156575590367,butyrate_SCFA
+13,Roseburia_sp_CAG_182,-0.050524282776979776,low,14.641667,Vegetables,0.136567696026626,butyrate_SCFA
+13,Haemophilus_parainfluenzae,-0.04940888236595548,low,10.091667,Sugar_sweetened_beverages,-0.123334842705267,none
+13,Veillonella_rogosae,-0.04785554858356022,low,39.245833,Sugar_sweetened_beverages,-0.151937366696404,none
+14,Roseburia_hominis,0.13566009969719173,high,39.3625,Nuts,0.197077948671331,"butyrate_SCFA, tryptophan_serotonin"
+14,Agathobaculum_butyriciproducens,0.1345716226541399,high,65.416667,Nuts,0.20679488303088,butyrate_SCFA
+14,Oscillibacter_sp_57_20,0.11990000473997806,high,12.191667,Nuts,0.169334248980711,none
+14,Firmicutes_bacterium_CAG_95,0.10558230240691222,high,9.670833,Nuts,0.128036928853606,none
+14,Eubacterium_hallii,0.10332037531909533,high,50.154167,Nuts,0.159940767351541,"butyrate_SCFA, tryptophan_serotonin"
+14,Pseudoflavonifractor_sp_An184,-0.11048603780986445,low,128.041667,Nuts,-0.137394725634246,none
+14,Clostridium_symbiosum,-0.10965035670595827,low,165.795833,Nuts,-0.160136898116365,pro_inflammatory
+14,Anaerotruncus_colihominis,-0.10782550770002587,low,164.9125,Nuts,-0.141722229200949,none
+14,Ruthenibacterium_lactatiformans,-0.10747387673866508,low,142.4625,Nuts,-0.18057509535161,none
+14,Firmicutes_bacterium_CAG_94,-0.10682956507656813,low,134.8375,Tea_coffee,0.157708300528003,none
+15,Clostridium_leptum,0.09238512615721467,high,142.283333,Sweets_desserts,0.207956271992387,none
+15,Firmicutes_bacterium_CAG_94,0.07306976120020905,high,134.8375,Tea_coffee,0.157708300528003,none
+15,Ruthenibacterium_lactatiformans,0.06286715981534792,high,142.4625,Nuts,-0.18057509535161,none
+15,Dialister_invisus,0.058995478316607834,high,86.266667,Sweets_desserts,0.106452235150644,none
+15,Oscillibacter_sp_CAG_241,0.05088132489228801,high,74.933333,Sugar_sweetened_beverages,0.106808927858175,none
+15,Anaerostipes_hadrus,-0.06864508327568301,low,67.3875,Potatoes,-0.14156575590367,butyrate_SCFA
+15,Bifidobacterium_animalis,-0.05984249287247714,low,28.933333,Dairy,0.199389710233721,GABA
+15,Ruminococcus_lactaris,-0.0551824047218684,low,34.295833,Potatoes,-0.128728155988683,none
+15,Bacteroides_finegoldii,-0.0539856839604542,low,71.479167,Sweets_desserts,-0.10256516852879,none
+15,Streptococcus_thermophilus,-0.05375865654768769,low,72.066667,Dairy,0.254092808318387,tryptophan_serotonin
