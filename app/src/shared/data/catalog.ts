@@ -22,13 +22,6 @@ export const CATALOG: FoodItem[] = [
     category: "fermented",
     pixels: SPRITES.yogurt,
     displayWeight: 0.85,
-    microbiomeProfile: {
-      lRhamnosus: 0.7,
-      bLongum: 0.5,
-      lAcidophilus: 0.8,
-      sThermophilus: 0.7,
-      lReuteri: 0.3,
-    },
   },
   {
     id: "kimchi",
@@ -36,13 +29,6 @@ export const CATALOG: FoodItem[] = [
     category: "fermented",
     pixels: SPRITES.kimchi,
     displayWeight: 0.9,
-    microbiomeProfile: {
-      lPlantarum: 0.8,
-      lRhamnosus: 0.5,
-      bLongum: 0.3,
-      lAcidophilus: 0.4,
-      aMuciniphila: 0.3,
-    },
   },
   {
     id: "kombucha",
@@ -50,13 +36,6 @@ export const CATALOG: FoodItem[] = [
     category: "fermented",
     pixels: SPRITES.kombucha,
     displayWeight: 0.8,
-    microbiomeProfile: {
-      lRhamnosus: 0.4,
-      bLongum: 0.3,
-      lAcidophilus: 0.5,
-      aMuciniphila: 0.3,
-      sThermophilus: 0.2,
-    },
   },
   {
     id: "sauerkraut",
@@ -64,13 +43,6 @@ export const CATALOG: FoodItem[] = [
     category: "fermented",
     pixels: SPRITES.sauerkraut,
     displayWeight: 0.8,
-    microbiomeProfile: {
-      lPlantarum: 0.7,
-      lRhamnosus: 0.4,
-      bLongum: 0.3,
-      fPrausnitzii: 0.3,
-      rIntestinalis: 0.2,
-    },
   },
   {
     id: "miso_soup",
@@ -78,13 +50,6 @@ export const CATALOG: FoodItem[] = [
     category: "fermented",
     pixels: SPRITES.miso_soup,
     displayWeight: 0.8,
-    microbiomeProfile: {
-      lPlantarum: 0.5,
-      bLongum: 0.4,
-      bInfantis: 0.3,
-      lAcidophilus: 0.3,
-      eFaecalis: 0.2,
-    },
   },
   {
     id: "tempeh",
@@ -92,13 +57,6 @@ export const CATALOG: FoodItem[] = [
     category: "fermented",
     pixels: SPRITES.tempeh,
     displayWeight: 0.75,
-    microbiomeProfile: {
-      lPlantarum: 0.6,
-      bLongum: 0.4,
-      fPrausnitzii: 0.4,
-      rIntestinalis: 0.3,
-      pCopri: 0.3,
-    },
   },
   {
     id: "natto",
@@ -106,13 +64,6 @@ export const CATALOG: FoodItem[] = [
     category: "fermented",
     pixels: SPRITES.natto,
     displayWeight: 0.85,
-    microbiomeProfile: {
-      lPlantarum: 0.7,
-      bLongum: 0.5,
-      fPrausnitzii: 0.5,
-      rIntestinalis: 0.4,
-      aMuciniphila: 0.3,
-    },
   },
   {
     id: "pickles",
@@ -120,13 +71,6 @@ export const CATALOG: FoodItem[] = [
     category: "fermented",
     pixels: SPRITES.pickles,
     displayWeight: 0.7,
-    microbiomeProfile: {
-      lPlantarum: 0.5,
-      lRhamnosus: 0.3,
-      bLongum: 0.2,
-      lAcidophilus: 0.3,
-      eFaecalis: 0.15,
-    },
   },
 
   // ── Fruits (11) ────────────────────────────────────────
@@ -136,13 +80,6 @@ export const CATALOG: FoodItem[] = [
     category: "fruits",
     pixels: SPRITES.banana,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      bLongum: 0.5,
-      bInfantis: 0.4,
-      fPrausnitzii: 0.4,
-      lRhamnosus: 0.2,
-      pCopri: 0.3,
-    },
   },
   {
     id: "blueberries",
@@ -150,13 +87,6 @@ export const CATALOG: FoodItem[] = [
     category: "fruits",
     pixels: SPRITES.blueberries,
     displayWeight: 0.65,
-    microbiomeProfile: {
-      aMuciniphila: 0.6,
-      bLongum: 0.4,
-      fPrausnitzii: 0.5,
-      lRhamnosus: 0.3,
-      rIntestinalis: 0.3,
-    },
   },
   {
     id: "apple",
@@ -164,13 +94,6 @@ export const CATALOG: FoodItem[] = [
     category: "fruits",
     pixels: SPRITES.apple,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      bLongum: 0.4,
-      fPrausnitzii: 0.4,
-      rIntestinalis: 0.3,
-      aMuciniphila: 0.3,
-      pCopri: 0.2,
-    },
   },
   {
     id: "pomegranate",
@@ -178,12 +101,6 @@ export const CATALOG: FoodItem[] = [
     category: "fruits",
     pixels: SPRITES.pomegranate,
     displayWeight: 0.65,
-    microbiomeProfile: {
-      aMuciniphila: 0.7,
-      bLongum: 0.3,
-      fPrausnitzii: 0.4,
-      lPlantarum: 0.2,
-    },
   },
   {
     id: "mango",
@@ -191,13 +108,6 @@ export const CATALOG: FoodItem[] = [
     category: "fruits",
     pixels: SPRITES.mango,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      bInfantis: 0.4,
-      bLongum: 0.3,
-      fPrausnitzii: 0.3,
-      pCopri: 0.3,
-      aMuciniphila: 0.2,
-    },
   },
   {
     id: "grapes",
@@ -205,12 +115,6 @@ export const CATALOG: FoodItem[] = [
     category: "fruits",
     pixels: SPRITES.grapes,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      aMuciniphila: 0.5,
-      bLongum: 0.3,
-      fPrausnitzii: 0.3,
-      lRhamnosus: 0.2,
-    },
   },
   {
     id: "watermelon",
@@ -218,12 +122,6 @@ export const CATALOG: FoodItem[] = [
     category: "fruits",
     pixels: SPRITES.watermelon,
     displayWeight: 0.5,
-    microbiomeProfile: {
-      bLongum: 0.3,
-      fPrausnitzii: 0.2,
-      aMuciniphila: 0.2,
-      pCopri: 0.2,
-    },
   },
   {
     id: "orange",
@@ -231,13 +129,6 @@ export const CATALOG: FoodItem[] = [
     category: "fruits",
     pixels: SPRITES.orange,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      bLongum: 0.4,
-      fPrausnitzii: 0.4,
-      aMuciniphila: 0.3,
-      rIntestinalis: 0.2,
-      pCopri: 0.2,
-    },
   },
   {
     id: "strawberry",
@@ -245,12 +136,6 @@ export const CATALOG: FoodItem[] = [
     category: "fruits",
     pixels: SPRITES.strawberry,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      aMuciniphila: 0.5,
-      bLongum: 0.4,
-      fPrausnitzii: 0.3,
-      lRhamnosus: 0.2,
-    },
   },
   {
     id: "pear",
@@ -258,13 +143,6 @@ export const CATALOG: FoodItem[] = [
     category: "fruits",
     pixels: SPRITES.pear,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      bLongum: 0.3,
-      rIntestinalis: 0.3,
-      aMuciniphila: 0.2,
-      pCopri: 0.2,
-    },
   },
   {
     id: "lemon",
@@ -272,12 +150,6 @@ export const CATALOG: FoodItem[] = [
     category: "fruits",
     pixels: SPRITES.lemon,
     displayWeight: 0.5,
-    microbiomeProfile: {
-      lRhamnosus: 0.3,
-      bLongum: 0.2,
-      aMuciniphila: 0.3,
-      fPrausnitzii: 0.2,
-    },
   },
 
   // ── Vegetables (14) ────────────────────────────────────
@@ -287,13 +159,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.garlic,
     displayWeight: 0.65,
-    microbiomeProfile: {
-      bLongum: 0.6,
-      bInfantis: 0.5,
-      lRhamnosus: 0.3,
-      fPrausnitzii: 0.4,
-      aMuciniphila: 0.2,
-    },
   },
   {
     id: "asparagus",
@@ -301,13 +166,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.asparagus,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      bLongum: 0.5,
-      bInfantis: 0.5,
-      lRhamnosus: 0.3,
-      fPrausnitzii: 0.3,
-      rIntestinalis: 0.2,
-    },
   },
   {
     id: "sweet_potato",
@@ -315,13 +173,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.sweet_potato,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.5,
-      rIntestinalis: 0.4,
-      bLongum: 0.3,
-      pCopri: 0.4,
-      bFragilis: 0.2,
-    },
   },
   {
     id: "broccoli",
@@ -329,13 +180,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.broccoli,
     displayWeight: 0.65,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      rIntestinalis: 0.3,
-      bLongum: 0.3,
-      aMuciniphila: 0.3,
-      lPlantarum: 0.2,
-    },
   },
   {
     id: "spinach",
@@ -343,13 +187,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.spinach,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      bLongum: 0.3,
-      rIntestinalis: 0.3,
-      aMuciniphila: 0.2,
-      pCopri: 0.2,
-    },
   },
   {
     id: "artichoke",
@@ -357,13 +194,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.artichoke,
     displayWeight: 0.7,
-    microbiomeProfile: {
-      bLongum: 0.7,
-      bInfantis: 0.6,
-      fPrausnitzii: 0.5,
-      lRhamnosus: 0.3,
-      rIntestinalis: 0.3,
-    },
   },
   {
     id: "carrot",
@@ -371,13 +201,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.carrot,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      fPrausnitzii: 0.3,
-      bLongum: 0.3,
-      rIntestinalis: 0.2,
-      aMuciniphila: 0.2,
-      pCopri: 0.2,
-    },
   },
   {
     id: "corn",
@@ -385,12 +208,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.corn,
     displayWeight: 0.5,
-    microbiomeProfile: {
-      fPrausnitzii: 0.3,
-      pCopri: 0.4,
-      rIntestinalis: 0.3,
-      bLongum: 0.2,
-    },
   },
   {
     id: "mushroom",
@@ -398,13 +215,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.mushroom,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      bLongum: 0.4,
-      rIntestinalis: 0.3,
-      aMuciniphila: 0.3,
-      lPlantarum: 0.2,
-    },
   },
   {
     id: "beet",
@@ -412,12 +222,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.beet,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      bLongum: 0.3,
-      rIntestinalis: 0.3,
-      aMuciniphila: 0.3,
-    },
   },
   {
     id: "ginger",
@@ -425,13 +229,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.ginger,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      lRhamnosus: 0.4,
-      bLongum: 0.3,
-      fPrausnitzii: 0.3,
-      aMuciniphila: 0.3,
-      lPlantarum: 0.2,
-    },
   },
   {
     id: "peas",
@@ -439,12 +236,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.peas,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      rIntestinalis: 0.3,
-      bLongum: 0.3,
-      pCopri: 0.3,
-    },
   },
   {
     id: "avocado",
@@ -452,13 +243,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.avocado,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.5,
-      bLongum: 0.4,
-      rIntestinalis: 0.3,
-      aMuciniphila: 0.3,
-      pCopri: 0.2,
-    },
   },
   {
     id: "salad",
@@ -466,13 +250,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.salad,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      bLongum: 0.3,
-      rIntestinalis: 0.3,
-      aMuciniphila: 0.3,
-      lPlantarum: 0.2,
-    },
   },
 
   // ── Grains (6) ─────────────────────────────────────────
@@ -482,13 +259,6 @@ export const CATALOG: FoodItem[] = [
     category: "grains",
     pixels: SPRITES.oatmeal,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.5,
-      rIntestinalis: 0.5,
-      bLongum: 0.4,
-      lRhamnosus: 0.2,
-      pCopri: 0.3,
-    },
   },
   {
     id: "sourdough",
@@ -496,13 +266,6 @@ export const CATALOG: FoodItem[] = [
     category: "grains",
     pixels: SPRITES.sourdough,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      lPlantarum: 0.4,
-      lRhamnosus: 0.3,
-      fPrausnitzii: 0.3,
-      bLongum: 0.2,
-      pCopri: 0.3,
-    },
   },
   {
     id: "brown_rice",
@@ -510,13 +273,6 @@ export const CATALOG: FoodItem[] = [
     category: "grains",
     pixels: SPRITES.brown_rice,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      rIntestinalis: 0.4,
-      pCopri: 0.4,
-      bLongum: 0.2,
-      bFragilis: 0.2,
-    },
   },
   {
     id: "quinoa",
@@ -524,13 +280,6 @@ export const CATALOG: FoodItem[] = [
     category: "grains",
     pixels: SPRITES.quinoa,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      rIntestinalis: 0.3,
-      bLongum: 0.3,
-      pCopri: 0.3,
-      aMuciniphila: 0.2,
-    },
   },
   {
     id: "barley",
@@ -538,13 +287,6 @@ export const CATALOG: FoodItem[] = [
     category: "grains",
     pixels: SPRITES.barley,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.5,
-      rIntestinalis: 0.5,
-      bLongum: 0.4,
-      pCopri: 0.3,
-      lRhamnosus: 0.2,
-    },
   },
   {
     id: "rice",
@@ -552,12 +294,6 @@ export const CATALOG: FoodItem[] = [
     category: "grains",
     pixels: SPRITES.rice,
     displayWeight: 0.5,
-    microbiomeProfile: {
-      fPrausnitzii: 0.3,
-      pCopri: 0.4,
-      rIntestinalis: 0.3,
-      bLongum: 0.2,
-    },
   },
 
   // ── Proteins (6) ───────────────────────────────────────
@@ -567,14 +303,6 @@ export const CATALOG: FoodItem[] = [
     category: "proteins",
     pixels: SPRITES.grilled_chicken,
     displayWeight: 0.4,
-    microbiomeProfile: {
-      eColiCommensal: 0.2,
-      bFragilis: 0.2,
-      cSporogenes: 0.2,
-      fPrausnitzii: -0.2,
-      rIntestinalis: -0.15,
-      bLongum: -0.1,
-    },
   },
   {
     id: "salmon",
@@ -582,13 +310,6 @@ export const CATALOG: FoodItem[] = [
     category: "proteins",
     pixels: SPRITES.salmon,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      lRhamnosus: 0.3,
-      bLongum: 0.3,
-      aMuciniphila: 0.4,
-      fPrausnitzii: 0.3,
-      eColiCommensal: 0.1,
-    },
   },
   {
     id: "eggs",
@@ -596,13 +317,6 @@ export const CATALOG: FoodItem[] = [
     category: "proteins",
     pixels: SPRITES.eggs,
     displayWeight: 0.45,
-    microbiomeProfile: {
-      eColiCommensal: 0.2,
-      bFragilis: 0.15,
-      cSporogenes: 0.15,
-      fPrausnitzii: -0.15,
-      rIntestinalis: -0.1,
-    },
   },
   {
     id: "tofu",
@@ -610,13 +324,6 @@ export const CATALOG: FoodItem[] = [
     category: "proteins",
     pixels: SPRITES.tofu,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      lPlantarum: 0.3,
-      bLongum: 0.3,
-      fPrausnitzii: 0.2,
-      pCopri: 0.2,
-      bInfantis: 0.2,
-    },
   },
   {
     id: "steak",
@@ -624,13 +331,6 @@ export const CATALOG: FoodItem[] = [
     category: "proteins",
     pixels: SPRITES.steak,
     displayWeight: 0.35,
-    microbiomeProfile: {
-      eColiCommensal: 0.4,
-      bFragilis: 0.4,
-      cSporogenes: 0.3,
-      fPrausnitzii: -0.3,
-      aMuciniphila: -0.2,
-    },
   },
   {
     id: "shrimp",
@@ -638,13 +338,6 @@ export const CATALOG: FoodItem[] = [
     category: "proteins",
     pixels: SPRITES.shrimp,
     displayWeight: 0.45,
-    microbiomeProfile: {
-      eColiCommensal: 0.15,
-      bFragilis: 0.15,
-      aMuciniphila: 0.2,
-      fPrausnitzii: 0.1,
-      lRhamnosus: 0.1,
-    },
   },
 
   // ── Dairy (5) ──────────────────────────────────────────
@@ -654,13 +347,6 @@ export const CATALOG: FoodItem[] = [
     category: "dairy",
     pixels: SPRITES.kefir,
     displayWeight: 0.8,
-    microbiomeProfile: {
-      lRhamnosus: 0.6,
-      lAcidophilus: 0.7,
-      bLongum: 0.5,
-      sThermophilus: 0.5,
-      lReuteri: 0.4,
-    },
   },
   {
     id: "aged_cheese",
@@ -668,13 +354,6 @@ export const CATALOG: FoodItem[] = [
     category: "dairy",
     pixels: SPRITES.aged_cheese,
     displayWeight: 0.45,
-    microbiomeProfile: {
-      lPlantarum: 0.3,
-      lRhamnosus: 0.3,
-      bFragilis: 0.3,
-      sThermophilus: 0.2,
-      eColiCommensal: 0.1,
-    },
   },
   {
     id: "cottage_cheese",
@@ -682,13 +361,6 @@ export const CATALOG: FoodItem[] = [
     category: "dairy",
     pixels: SPRITES.cottage_cheese,
     displayWeight: 0.5,
-    microbiomeProfile: {
-      lAcidophilus: 0.4,
-      sThermophilus: 0.3,
-      bLongum: 0.3,
-      lRhamnosus: 0.2,
-      bInfantis: 0.2,
-    },
   },
   {
     id: "butter",
@@ -696,11 +368,6 @@ export const CATALOG: FoodItem[] = [
     category: "dairy",
     pixels: SPRITES.butter,
     displayWeight: 0.35,
-    microbiomeProfile: {
-      bFragilis: 0.2,
-      eColiCommensal: 0.1,
-      fPrausnitzii: -0.1,
-    },
   },
   {
     id: "whey_protein",
@@ -708,12 +375,6 @@ export const CATALOG: FoodItem[] = [
     category: "dairy",
     pixels: SPRITES.whey_protein,
     displayWeight: 0.45,
-    microbiomeProfile: {
-      lAcidophilus: 0.3,
-      bLongum: 0.3,
-      lRhamnosus: 0.2,
-      eColiCommensal: 0.2,
-    },
   },
 
   // ── Beverages (9) ──────────────────────────────────────
@@ -723,13 +384,6 @@ export const CATALOG: FoodItem[] = [
     category: "beverages",
     pixels: SPRITES.green_tea,
     displayWeight: 0.65,
-    microbiomeProfile: {
-      aMuciniphila: 0.5,
-      bLongum: 0.4,
-      lRhamnosus: 0.3,
-      fPrausnitzii: 0.3,
-      lPlantarum: 0.2,
-    },
   },
   {
     id: "red_wine",
@@ -737,13 +391,6 @@ export const CATALOG: FoodItem[] = [
     category: "beverages",
     pixels: SPRITES.red_wine,
     displayWeight: 0.5,
-    microbiomeProfile: {
-      aMuciniphila: 0.5,
-      bLongum: 0.3,
-      fPrausnitzii: 0.3,
-      lRhamnosus: 0.2,
-      eColiCommensal: -0.2,
-    },
   },
   {
     id: "coffee",
@@ -751,13 +398,6 @@ export const CATALOG: FoodItem[] = [
     category: "beverages",
     pixels: SPRITES.coffee,
     displayWeight: 0.5,
-    microbiomeProfile: {
-      bLongum: 0.3,
-      fPrausnitzii: 0.3,
-      aMuciniphila: 0.2,
-      eColiCommensal: 0.2,
-      cSporogenes: 0.2,
-    },
   },
   {
     id: "bone_broth",
@@ -765,13 +405,6 @@ export const CATALOG: FoodItem[] = [
     category: "beverages",
     pixels: SPRITES.bone_broth,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      lReuteri: 0.3,
-      aMuciniphila: 0.4,
-      fPrausnitzii: 0.3,
-      bFragilis: 0.2,
-      rIntestinalis: 0.2,
-    },
   },
   {
     id: "soda",
@@ -779,18 +412,6 @@ export const CATALOG: FoodItem[] = [
     category: "beverages",
     pixels: SPRITES.soda,
     displayWeight: 0.25,
-    microbiomeProfile: {
-      eColiCommensal: 0.1,
-      fPrausnitzii: -0.6,
-      aMuciniphila: -0.6,
-      bLongum: -0.5,
-      rIntestinalis: -0.5,
-      bInfantis: -0.4,
-      lRhamnosus: -0.3,
-      lAcidophilus: -0.3,
-      sThermophilus: -0.2,
-      lReuteri: -0.2,
-    },
   },
   {
     id: "bubble_tea",
@@ -798,13 +419,6 @@ export const CATALOG: FoodItem[] = [
     category: "beverages",
     pixels: SPRITES.bubble_tea,
     displayWeight: 0.3,
-    microbiomeProfile: {
-      eColiCommensal: 0.1,
-      fPrausnitzii: -0.3,
-      aMuciniphila: -0.3,
-      bLongum: -0.2,
-      rIntestinalis: -0.2,
-    },
   },
   {
     id: "smoothie",
@@ -812,13 +426,6 @@ export const CATALOG: FoodItem[] = [
     category: "beverages",
     pixels: SPRITES.smoothie,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      bLongum: 0.4,
-      fPrausnitzii: 0.3,
-      aMuciniphila: 0.3,
-      lRhamnosus: 0.2,
-      bInfantis: 0.2,
-    },
   },
   {
     id: "beer",
@@ -826,13 +433,6 @@ export const CATALOG: FoodItem[] = [
     category: "beverages",
     pixels: SPRITES.beer,
     displayWeight: 0.35,
-    microbiomeProfile: {
-      lPlantarum: 0.2,
-      bFragilis: 0.2,
-      eColiCommensal: 0.15,
-      fPrausnitzii: -0.2,
-      aMuciniphila: -0.15,
-    },
   },
   {
     id: "energy_drink",
@@ -840,15 +440,6 @@ export const CATALOG: FoodItem[] = [
     category: "beverages",
     pixels: SPRITES.energy_drink,
     displayWeight: 0.25,
-    microbiomeProfile: {
-      eColiCommensal: 0.2,
-      cSporogenes: 0.2,
-      fPrausnitzii: -0.4,
-      aMuciniphila: -0.4,
-      bLongum: -0.3,
-      rIntestinalis: -0.3,
-      lRhamnosus: -0.2,
-    },
   },
 
   // ── Sweets (8) ─────────────────────────────────────────
@@ -858,15 +449,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.dark_chocolate,
     displayWeight: 0.45,
-    microbiomeProfile: {
-      bLongum: 0.3,
-      lRhamnosus: 0.2,
-      fPrausnitzii: 0.2,
-      aMuciniphila: 0.15,
-      eColiCommensal: 0.1,
-      bFragilis: 0.1,
-      lAcidophilus: -0.1,
-    },
   },
   {
     id: "candy_bar",
@@ -874,19 +456,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.candy_bar,
     displayWeight: 0.2,
-    microbiomeProfile: {
-      eColiCommensal: 0.1,
-      bFragilis: 0.1,
-      fPrausnitzii: -0.7,
-      aMuciniphila: -0.6,
-      bLongum: -0.5,
-      rIntestinalis: -0.5,
-      bInfantis: -0.4,
-      lRhamnosus: -0.4,
-      lAcidophilus: -0.3,
-      sThermophilus: -0.3,
-      lReuteri: -0.2,
-    },
   },
   {
     id: "honey",
@@ -894,14 +463,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.honey,
     displayWeight: 0.4,
-    microbiomeProfile: {
-      bLongum: 0.15,
-      bInfantis: 0.1,
-      aMuciniphila: -0.2,
-      rIntestinalis: -0.15,
-      fPrausnitzii: -0.1,
-      lAcidophilus: -0.1,
-    },
   },
   {
     id: "ice_cream",
@@ -909,18 +470,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.ice_cream,
     displayWeight: 0.25,
-    microbiomeProfile: {
-      eColiCommensal: 0.1,
-      bFragilis: 0.1,
-      fPrausnitzii: -0.5,
-      aMuciniphila: -0.5,
-      bLongum: -0.4,
-      rIntestinalis: -0.4,
-      bInfantis: -0.3,
-      lRhamnosus: -0.3,
-      lAcidophilus: -0.3,
-      sThermophilus: -0.2,
-    },
   },
   {
     id: "pastry",
@@ -928,17 +477,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.pastry,
     displayWeight: 0.25,
-    microbiomeProfile: {
-      eColiCommensal: 0.1,
-      bFragilis: 0.1,
-      fPrausnitzii: -0.5,
-      rIntestinalis: -0.4,
-      aMuciniphila: -0.4,
-      bLongum: -0.3,
-      bInfantis: -0.3,
-      lRhamnosus: -0.2,
-      lAcidophilus: -0.2,
-    },
   },
   {
     id: "donut",
@@ -946,16 +484,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.donut,
     displayWeight: 0.2,
-    microbiomeProfile: {
-      eColiCommensal: 0.1,
-      fPrausnitzii: -0.6,
-      aMuciniphila: -0.5,
-      bLongum: -0.5,
-      rIntestinalis: -0.4,
-      bInfantis: -0.3,
-      lRhamnosus: -0.3,
-      lAcidophilus: -0.2,
-    },
   },
   {
     id: "cake",
@@ -963,16 +491,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.cake,
     displayWeight: 0.2,
-    microbiomeProfile: {
-      eColiCommensal: 0.1,
-      bFragilis: 0.1,
-      fPrausnitzii: -0.6,
-      aMuciniphila: -0.5,
-      bLongum: -0.4,
-      rIntestinalis: -0.4,
-      bInfantis: -0.3,
-      lRhamnosus: -0.3,
-    },
   },
   {
     id: "cookie",
@@ -980,15 +498,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.cookie,
     displayWeight: 0.25,
-    microbiomeProfile: {
-      eColiCommensal: 0.1,
-      bFragilis: 0.1,
-      fPrausnitzii: -0.4,
-      aMuciniphila: -0.4,
-      bLongum: -0.3,
-      rIntestinalis: -0.3,
-      lRhamnosus: -0.2,
-    },
   },
 
   // ── Legumes (5) ────────────────────────────────────────
@@ -998,13 +507,6 @@ export const CATALOG: FoodItem[] = [
     category: "legumes",
     pixels: SPRITES.black_beans,
     displayWeight: 0.65,
-    microbiomeProfile: {
-      fPrausnitzii: 0.6,
-      rIntestinalis: 0.5,
-      pCopri: 0.5,
-      bLongum: 0.4,
-      bFragilis: 0.2,
-    },
   },
   {
     id: "lentils",
@@ -1012,13 +514,6 @@ export const CATALOG: FoodItem[] = [
     category: "legumes",
     pixels: SPRITES.lentils,
     displayWeight: 0.65,
-    microbiomeProfile: {
-      fPrausnitzii: 0.6,
-      rIntestinalis: 0.5,
-      pCopri: 0.5,
-      bLongum: 0.3,
-      bInfantis: 0.2,
-    },
   },
   {
     id: "chickpeas",
@@ -1026,13 +521,6 @@ export const CATALOG: FoodItem[] = [
     category: "legumes",
     pixels: SPRITES.chickpeas,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.5,
-      rIntestinalis: 0.4,
-      pCopri: 0.5,
-      bLongum: 0.3,
-      lPlantarum: 0.2,
-    },
   },
   {
     id: "edamame",
@@ -1040,13 +528,6 @@ export const CATALOG: FoodItem[] = [
     category: "legumes",
     pixels: SPRITES.edamame,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      bLongum: 0.4,
-      pCopri: 0.3,
-      lPlantarum: 0.3,
-      bInfantis: 0.2,
-    },
   },
   {
     id: "peanuts",
@@ -1054,13 +535,6 @@ export const CATALOG: FoodItem[] = [
     category: "legumes",
     pixels: SPRITES.peanuts,
     displayWeight: 0.5,
-    microbiomeProfile: {
-      fPrausnitzii: 0.3,
-      rIntestinalis: 0.3,
-      bLongum: 0.2,
-      pCopri: 0.2,
-      eColiCommensal: 0.1,
-    },
   },
 
   // ── Nuts & Seeds (5) ───────────────────────────────────
@@ -1070,13 +544,6 @@ export const CATALOG: FoodItem[] = [
     category: "nuts_seeds",
     pixels: SPRITES.almonds,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      bLongum: 0.5,
-      lRhamnosus: 0.3,
-      fPrausnitzii: 0.4,
-      rIntestinalis: 0.3,
-      aMuciniphila: 0.2,
-    },
   },
   {
     id: "walnuts",
@@ -1084,13 +551,6 @@ export const CATALOG: FoodItem[] = [
     category: "nuts_seeds",
     pixels: SPRITES.walnuts,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      bLongum: 0.4,
-      fPrausnitzii: 0.5,
-      rIntestinalis: 0.3,
-      lRhamnosus: 0.3,
-      aMuciniphila: 0.3,
-    },
   },
   {
     id: "flaxseed",
@@ -1098,13 +558,6 @@ export const CATALOG: FoodItem[] = [
     category: "nuts_seeds",
     pixels: SPRITES.flaxseed,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.5,
-      rIntestinalis: 0.4,
-      bLongum: 0.4,
-      aMuciniphila: 0.3,
-      pCopri: 0.2,
-    },
   },
   {
     id: "chia_seeds",
@@ -1112,13 +565,6 @@ export const CATALOG: FoodItem[] = [
     category: "nuts_seeds",
     pixels: SPRITES.chia_seeds,
     displayWeight: 0.6,
-    microbiomeProfile: {
-      fPrausnitzii: 0.5,
-      rIntestinalis: 0.4,
-      bLongum: 0.3,
-      aMuciniphila: 0.3,
-      pCopri: 0.3,
-    },
   },
   {
     id: "sunflower_seeds",
@@ -1126,13 +572,6 @@ export const CATALOG: FoodItem[] = [
     category: "nuts_seeds",
     pixels: SPRITES.sunflower_seeds,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      fPrausnitzii: 0.3,
-      bLongum: 0.3,
-      rIntestinalis: 0.3,
-      lPlantarum: 0.2,
-      pCopri: 0.2,
-    },
   },
 
   // ── Fast Food / Junk (8) ───────────────────────────────
@@ -1142,15 +581,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.pizza,
     displayWeight: 0.3,
-    microbiomeProfile: {
-      eColiCommensal: 0.2,
-      bFragilis: 0.3,
-      cSporogenes: 0.2,
-      fPrausnitzii: -0.4,
-      aMuciniphila: -0.3,
-      bLongum: -0.3,
-      rIntestinalis: -0.3,
-    },
   },
   {
     id: "burger",
@@ -1158,16 +588,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.burger,
     displayWeight: 0.25,
-    microbiomeProfile: {
-      eColiCommensal: 0.3,
-      bFragilis: 0.4,
-      cSporogenes: 0.3,
-      fPrausnitzii: -0.4,
-      aMuciniphila: -0.3,
-      bLongum: -0.3,
-      rIntestinalis: -0.3,
-      lRhamnosus: -0.2,
-    },
   },
   {
     id: "fries",
@@ -1175,14 +595,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.fries,
     displayWeight: 0.25,
-    microbiomeProfile: {
-      eColiCommensal: 0.1,
-      bFragilis: 0.2,
-      fPrausnitzii: -0.4,
-      aMuciniphila: -0.3,
-      bLongum: -0.3,
-      rIntestinalis: -0.3,
-    },
   },
   {
     id: "hot_dog",
@@ -1190,16 +602,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.hot_dog,
     displayWeight: 0.2,
-    microbiomeProfile: {
-      eColiCommensal: 0.3,
-      bFragilis: 0.3,
-      cSporogenes: 0.3,
-      fPrausnitzii: -0.5,
-      aMuciniphila: -0.4,
-      bLongum: -0.3,
-      rIntestinalis: -0.3,
-      lRhamnosus: -0.2,
-    },
   },
   {
     id: "nachos",
@@ -1207,14 +609,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.nachos,
     displayWeight: 0.25,
-    microbiomeProfile: {
-      eColiCommensal: 0.15,
-      bFragilis: 0.25,
-      fPrausnitzii: -0.3,
-      aMuciniphila: -0.3,
-      bLongum: -0.2,
-      rIntestinalis: -0.2,
-    },
   },
   {
     id: "chips",
@@ -1222,14 +616,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.chips,
     displayWeight: 0.25,
-    microbiomeProfile: {
-      eColiCommensal: 0.1,
-      bFragilis: 0.15,
-      fPrausnitzii: -0.3,
-      aMuciniphila: -0.3,
-      bLongum: -0.2,
-      rIntestinalis: -0.2,
-    },
   },
   {
     id: "ramen",
@@ -1237,14 +623,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.ramen,
     displayWeight: 0.35,
-    microbiomeProfile: {
-      eColiCommensal: 0.15,
-      bFragilis: 0.2,
-      lPlantarum: 0.15,
-      fPrausnitzii: -0.2,
-      aMuciniphila: -0.15,
-      bLongum: -0.1,
-    },
   },
   {
     id: "popcorn",
@@ -1252,12 +630,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.popcorn,
     displayWeight: 0.35,
-    microbiomeProfile: {
-      fPrausnitzii: 0.2,
-      rIntestinalis: 0.15,
-      pCopri: 0.2,
-      bFragilis: 0.1,
-    },
   },
 
   // ── Global Foods ───────────────────────────────────────
@@ -1267,13 +639,6 @@ export const CATALOG: FoodItem[] = [
     category: "proteins",
     pixels: SPRITES.sushi,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      bLongum: 0.3,
-      fPrausnitzii: 0.2,
-      aMuciniphila: 0.3,
-      lPlantarum: 0.2,
-      pCopri: 0.2,
-    },
   },
   {
     id: "falafel",
@@ -1281,13 +646,6 @@ export const CATALOG: FoodItem[] = [
     category: "legumes",
     pixels: SPRITES.falafel,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      rIntestinalis: 0.3,
-      pCopri: 0.4,
-      bLongum: 0.2,
-      lPlantarum: 0.2,
-    },
   },
   {
     id: "curry",
@@ -1295,13 +653,6 @@ export const CATALOG: FoodItem[] = [
     category: "vegetables",
     pixels: SPRITES.curry,
     displayWeight: 0.5,
-    microbiomeProfile: {
-      lRhamnosus: 0.3,
-      bLongum: 0.3,
-      fPrausnitzii: 0.2,
-      aMuciniphila: 0.2,
-      pCopri: 0.2,
-    },
   },
   {
     id: "tacos",
@@ -1309,13 +660,6 @@ export const CATALOG: FoodItem[] = [
     category: "sweets",
     pixels: SPRITES.tacos,
     displayWeight: 0.35,
-    microbiomeProfile: {
-      eColiCommensal: 0.15,
-      bFragilis: 0.2,
-      fPrausnitzii: -0.15,
-      aMuciniphila: -0.1,
-      pCopri: 0.15,
-    },
   },
   {
     id: "pad_thai",
@@ -1323,13 +667,6 @@ export const CATALOG: FoodItem[] = [
     category: "grains",
     pixels: SPRITES.pad_thai,
     displayWeight: 0.45,
-    microbiomeProfile: {
-      pCopri: 0.3,
-      bLongum: 0.2,
-      fPrausnitzii: 0.1,
-      eColiCommensal: 0.1,
-      bFragilis: 0.1,
-    },
   },
   {
     id: "dumpling",
@@ -1337,13 +674,6 @@ export const CATALOG: FoodItem[] = [
     category: "grains",
     pixels: SPRITES.dumpling,
     displayWeight: 0.45,
-    microbiomeProfile: {
-      pCopri: 0.2,
-      bLongum: 0.2,
-      lPlantarum: 0.15,
-      fPrausnitzii: 0.1,
-      eColiCommensal: 0.1,
-    },
   },
 
   // ── Snacks ─────────────────────────────────────────────
@@ -1353,13 +683,6 @@ export const CATALOG: FoodItem[] = [
     category: "grains",
     pixels: SPRITES.granola_bar,
     displayWeight: 0.45,
-    microbiomeProfile: {
-      fPrausnitzii: 0.3,
-      rIntestinalis: 0.3,
-      bLongum: 0.2,
-      pCopri: 0.2,
-      aMuciniphila: -0.1,
-    },
   },
   {
     id: "trail_mix",
@@ -1367,13 +690,6 @@ export const CATALOG: FoodItem[] = [
     category: "nuts_seeds",
     pixels: SPRITES.trail_mix,
     displayWeight: 0.55,
-    microbiomeProfile: {
-      fPrausnitzii: 0.4,
-      bLongum: 0.3,
-      rIntestinalis: 0.3,
-      aMuciniphila: 0.2,
-      pCopri: 0.2,
-    },
   },
   {
     id: "pretzel",
@@ -1381,11 +697,5 @@ export const CATALOG: FoodItem[] = [
     category: "grains",
     pixels: SPRITES.pretzel,
     displayWeight: 0.35,
-    microbiomeProfile: {
-      pCopri: 0.2,
-      bFragilis: 0.1,
-      fPrausnitzii: -0.1,
-      aMuciniphila: -0.1,
-    },
   },
 ];

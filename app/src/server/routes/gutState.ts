@@ -1,22 +1,22 @@
 import { Router } from "express";
-import { loadGutState, saveGutState, createBaselineGutState } from "../services/persistence.js";
+import type { GutDynamicsEngine } from "../services/gutDynamics.js";
 
-const router = Router();
+export function createGutStateRouter(engine: GutDynamicsEngine): Router {
+  const router = Router();
 
-router.get("/", (_req, res) => {
-  const snapshot = loadGutState();
-  res.json(snapshot);
-});
+  router.get("/", (_req, res) => {
+    res.json(engine.getSnapshot());
+  });
 
-router.post("/reset", (req, res) => {
-  if (req.query.confirm !== "true") {
-    res.status(400).json({ error: "Must include ?confirm=true to reset" });
-    return;
-  }
+  router.post("/reset", (req, res) => {
+    if (req.query.confirm !== "true") {
+      res.status(400).json({ error: "Must include ?confirm=true to reset" });
+      return;
+    }
 
-  const baseline = createBaselineGutState();
-  saveGutState(baseline);
-  res.json({ message: "Gut state reset to baseline", gutState: baseline });
-});
+    engine.reset();
+    res.json({ message: "Gut state reset to baseline", state: engine.getSnapshot() });
+  });
 
-export default router;
+  return router;
+}

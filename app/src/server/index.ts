@@ -1,26 +1,32 @@
 import express from "express";
 import { config } from "./config.js";
-import { loadGutState } from "./services/persistence.js";
-import selectionRouter from "./routes/selection.js";
-import gutStateRouter from "./routes/gutState.js";
+import { initOsc } from "./services/oscClient.js";
+import { GutDynamicsEngine } from "./services/gutDynamics.js";
+import { createSelectionRouter } from "./routes/selection.js";
+import { createGutStateRouter } from "./routes/gutState.js";
+
+initOsc(config.oscPort);
+
+const engine = new GutDynamicsEngine();
 
 const app = express();
-
 app.use(express.json());
 
-app.use("/api/select", selectionRouter);
-app.use("/api/gut-state", gutStateRouter);
-app.use("/api/reset", gutStateRouter);
+app.use("/api/select", createSelectionRouter(engine));
+app.use("/api/gut-state", createGutStateRouter(engine));
 
 app.use((_req, res) => {
   res.status(404).end();
 });
 
-const snapshot = loadGutState();
+const snap = engine.getSnapshot();
 console.log(
-  `Loaded gut state: ${snapshot.totalOrders} orders, created ${snapshot.createdAt}`,
+  `[86BB] ${snap.totalSelections} selections, ${snap.totalDigestions} digestions, created ${snap.createdAt}`,
 );
 
 app.listen(config.port, () => {
-  console.log(`86BB server listening on http://localhost:${config.port}`);
+  console.log(`[86BB] Server listening on http://localhost:${config.port}`);
+  console.log(
+    `[86BB] Batch size: ${config.batchSize}, alpha: ${config.alphaSlow}, sensitivity: ${config.sensitivity}`,
+  );
 });
