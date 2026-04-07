@@ -22,6 +22,14 @@ npm install
 npm run dev
 ```
 
+## Audio Samples
+
+Large audio files are hosted as GitHub Release assets (too large for git). After cloning, run:
+
+```bash
+./scripts/fetch-samples.sh
+```
+
 The app runs at `http://localhost:5173` (Vite dev server) with the API at `http://localhost:3000`.
 
 To access the app from an iPad on the same network, open `http://<machine-ip>:5173`.
