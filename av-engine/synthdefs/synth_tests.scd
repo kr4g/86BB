@@ -276,19 +276,11 @@ var b = Buffer.read(s, thisProcess.nowExecutingPath.dirname +/+ "../samples/gut_
 
 	var phase = Sweep.ar(trig, 1/dur).clip(0, 1);
 	var freqEnv = phase.linexp(0, 1, 20, 20000);
-	// var freqEnv = LFNoise1.ar(550).exprange(20, 20000);
 
 	var sig = SinOsc.ar(freqEnv, mul:0.25) * env;
 
-	// var crush = FreqShift.ar(Decimator.ar(sig.reverse, TExpRand.ar(8000, 48000, trig), TRand.ar(8, 24, trig)), freq: TRand.ar(-1550, 1550, trig));
-
-	// var hpf = HPF.ar(sig + (crush * -16.dbamp), 1500);
 	var hpf = HPF.ar(sig, 2500);
-	// var lpf = LPF.ar(sig, 250);
-	// sig = lpf + hpf;
 	sig = hpf;
-
-	// sig = PitchShift.ar(sig, 0.1, TExpRand.ar(0.25, 1, trig), 0.01, 0.001);
 
 	sig = sig * mul * (TRand.ar(0, 1, trig) < prob);
 

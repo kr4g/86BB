@@ -54,8 +54,7 @@ s.waitForBoot({
 	// ========== SYNTHDEFS ==========
 	(basePath +/+ "synthdefs/led_lfo.scd").load;
 	(basePath +/+ "synthdefs/led_collector.scd").load;
-	(basePath +/+ "synthdefs/SpectralPad/SpectralPad_SynthDef.scd").load;
-	(basePath +/+ "synthdefs/PolyFormant/PolyFormant_SynthDef.scd").load;
+	(basePath +/+ "synthdefs/gut_voices.scd").load;
 	s.sync;
 	"[86BB] SynthDefs loaded.".postln;
 
