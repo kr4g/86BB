@@ -10,8 +10,8 @@ s = Server.local;
 
 // TODO: set these to the installation hardware
 s.options.outDevice_(
-	// "MacBook Pro Speakers"
-	"UMC404HD 192k"
+	"MacBook Pro Speakers"
+	// "UMC404HD 192k"
 );
 // s.options.inDevice_("Built-in Microph");
 s.options.numOutputBusChannels_(~nChans);
@@ -52,8 +52,8 @@ s.waitForBoot({
 	("[86BB] Wavetable buffers ready (bufs" + ~wtBufStart + "-" + (~wtBufStart+4) ++ ")").postln;
 
 	// ========== SYNTHDEFS ==========
-	(basePath +/+ "synthdefs/led_synths.scd").load;
-	(basePath +/+ "synthdefs/gut_voices.scd").load;
+	(basePath +/+ "synthdefs/leds.scd").load;
+	(basePath +/+ "synthdefs/transducers.scd").load;
 	s.sync;
 	"[86BB] SynthDefs loaded.".postln;
 

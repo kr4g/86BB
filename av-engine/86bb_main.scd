@@ -41,7 +41,7 @@ s.waitForBoot({
 	("[86BB] Wavetable buffers ready (bufs" + ~wtBufStart + "-" + (~wtBufStart+4) ++ ")").postln;
 
 	// ========== SYNTHDEFS ==========
-	(basePath +/+ "synthdefs/led_synths.scd").load;
+	(basePath +/+ "synthdefs/leds.scd").load;
 	s.sync;
 	"[86BB] SynthDefs loaded.".postln;
 
