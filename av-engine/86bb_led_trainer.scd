@@ -251,14 +251,16 @@ s.waitForBoot({
 		var gutState = ~getSelectedGutState.value;
 		var ledState = ~bb86[\getStateAsArray].value;
 		var id = "pair_" ++ pairCount;
-		~inputBuf.loadCollection(gutState);
-		~outputBuf.loadCollection(ledState);
-		s.sync;
-		~inputDS.addPoint(id, ~inputBuf);
-		~outputDS.addPoint(id, ~outputBuf);
-		pairCount = pairCount + 1;
-		defer { pairCountLabel.string = "Pairs:" + pairCount };
-		("[86BB Trainer] Added pair" + id + "— gut:" + gutState.round(0.001)).postln;
+		fork {
+			~inputBuf.loadCollection(gutState);
+			~outputBuf.loadCollection(ledState);
+			s.sync;
+			~inputDS.addPoint(id, ~inputBuf);
+			~outputDS.addPoint(id, ~outputBuf);
+			pairCount = pairCount + 1;
+			defer { pairCountLabel.string = "Pairs:" + pairCount };
+			("[86BB Trainer] Added pair" + id + "— gut:" + gutState.round(0.001)).postln;
+		};
 	};
 
 	~bb86[\trainMLP] = {
@@ -282,18 +284,20 @@ s.waitForBoot({
 
 	~bb86[\testPredict] = {
 		var gutState = ~getSelectedGutState.value;
-		~inputBuf.loadCollection(gutState);
-		s.sync;
-		~inputNorm.transformPoint(~inputBuf, ~inputBufNormed, {
-			~mlp.predictPoint(~inputBufNormed, ~outputBufNormed, {
-				~outputNorm.inverseTransformPoint(~outputBufNormed, ~outputBuf, {
-					~outputBuf.loadToFloatArray(action: { |arr|
-						defer { ~bb86[\applyStateFromArray].(arr) };
-						("[86BB Trainer] Predicted for gut:" + gutState.round(0.001)).postln;
+		fork {
+			~inputBuf.loadCollection(gutState);
+			s.sync;
+			~inputNorm.transformPoint(~inputBuf, ~inputBufNormed, {
+				~mlp.predictPoint(~inputBufNormed, ~outputBufNormed, {
+					~outputNorm.inverseTransformPoint(~outputBufNormed, ~outputBuf, {
+						~outputBuf.loadToFloatArray(action: { |arr|
+							defer { ~bb86[\applyStateFromArray].(arr) };
+							("[86BB Trainer] Predicted for gut:" + gutState.round(0.001)).postln;
+						});
 					});
 				});
 			});
-		});
+		};
 	};
 
 	~bb86[\saveModel] = {
@@ -317,11 +321,13 @@ s.waitForBoot({
 	};
 
 	~bb86[\loadDataset] = {
-		~inputDS.read(modelsPath +/+ "led_input_ds.json");
-		~outputDS.read(modelsPath +/+ "led_output_ds.json");
-		s.sync;
-		~inputDS.size({ |sz| pairCount = sz; defer { pairCountLabel.string = "Pairs:" + pairCount } });
-		"[86BB Trainer] Datasets loaded.".postln;
+		fork {
+			~inputDS.read(modelsPath +/+ "led_input_ds.json");
+			~outputDS.read(modelsPath +/+ "led_output_ds.json");
+			s.sync;
+			~inputDS.size({ |sz| pairCount = sz; defer { pairCountLabel.string = "Pairs:" + pairCount } });
+			"[86BB Trainer] Datasets loaded.".postln;
+		};
 	};
 
 	// ========== BUILD WINDOW ==========
