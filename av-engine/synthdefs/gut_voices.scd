@@ -38,7 +38,7 @@ SynthDef(\drips, {
 		var trig = Impulse.ar(trigFreq);
 
 		var dur = trigFreq.explin(0.1, 11, 0.05, 0.01);
-		var peakEnv = EnvGen.ar(Env.perc(0.01, dur, curve: -8), trig, doneAction: Done.none);
+		var peakEnv = EnvGen.ar(Env.perc(0.01, dur, curve: -8), trig, doneAction: 0);
 
 		var phase = Sweep.ar(trig, 1 / dur).clip(0, 1);
 		var freqEnv = phase.linexp(0, 1, lSweepLo, lSweepHi);
