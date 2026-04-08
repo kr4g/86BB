@@ -3,7 +3,7 @@
 // Evaluate this block to boot + open GUI.
 // =====================================================
 (
-~numLEDs = 4;
+~numLEDs = 5;
 ~espAddr = NetAddr("192.168.8.124", 9000);
 
 s.waitForBoot({

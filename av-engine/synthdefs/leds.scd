@@ -59,7 +59,7 @@ SynthDef(\ledCollector, {
 	rateMultiplier = 5,
 	gamma = 1.8;
 
-	var numCh = 12;
+	var numCh = 15;
 	var ledVals = In.kr(ledBusIndex, numCh);
 	var freqVals = In.kr(freqBusIndex, numCh);
 
