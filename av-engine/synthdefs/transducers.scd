@@ -132,24 +132,17 @@ SynthDef(\burps, {
 		var lTrigRate = VarLag.kr(tRate, lagTime, 0).max(0.01);
 		var combTime = Rand(0.11, 0.14);
 		var pitchRatio = Rand(0.67, 0.75);
-
 		var trig = Dust.kr(lTrigRate);
 		var dur = lTrigRate.explin(0.1, 1.2, 0.5, 0.1);
-
 		var phase = Sweep.ar(trig, 1 / dur).clip(0, 1);
 		var freqEnv = phase.linexp(0, 1, lFund * 4, lFund * TExpRand.ar(lSweepHiMin, lSweepHiMax, trig));
-
 		var sig = Formant.ar(lFund, freqEnv, lBW, mul: -5.dbamp);
-
-		var envPulse = EnvGen.ar(
-			Env.perc(0.01, dur),
-			trig,
-			doneAction: Done.none
-		);
+		var envPulse = EnvGen.ar(Env.perc(0.01, dur), trig, doneAction: Done.none);
+		var comb;
 
 		sig = sig * envPulse * LFNoise1.ar(Rand(0.08, 0.12)).range(0, 1);
 
-		var comb = CombL.ar(sig, 0.2, combTime, 2);
+		comb = CombL.ar(sig, 0.2, combTime, 2);
 		comb = PitchShift.ar(comb, 0.2, pitchRatio, 0.01, 0.001);
 		comb = comb * Lag.kr(combMix, lagTime).dbamp;
 

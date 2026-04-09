@@ -1,7 +1,6 @@
 import {
   DEFAULT_PORT,
   DEFAULT_DATA_DIR,
-  DEFAULT_BATCH_SIZE,
   DEFAULT_ALPHA_SLOW,
   DEFAULT_SENSITIVITY,
   DEFAULT_KICK_SCALE,
@@ -30,7 +29,6 @@ function envStr(key: string, fallback: string): string {
 export const config = {
   port: envInt("PORT", DEFAULT_PORT),
   dataDir: envStr("DATA_DIR", DEFAULT_DATA_DIR),
-  batchSize: envInt("BATCH_SIZE", DEFAULT_BATCH_SIZE),
   alphaSlow: envFloat("ALPHA_SLOW", DEFAULT_ALPHA_SLOW),
   sensitivity: envFloat("SENSITIVITY", DEFAULT_SENSITIVITY),
   kickScale: envFloat("KICK_SCALE", DEFAULT_KICK_SCALE),

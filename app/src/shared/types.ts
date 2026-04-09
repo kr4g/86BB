@@ -26,8 +26,6 @@ export interface SelectionRequest {
 
 export interface SelectionResponse {
   foodId: string;
-  batchProgress: number;
-  digested: boolean;
   activeBioScores: BioScores;
   stableBioScores: BioScores;
   impulseMagnitude: number;

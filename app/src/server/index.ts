@@ -21,12 +21,12 @@ app.use((_req, res) => {
 
 const snap = engine.getSnapshot();
 console.log(
-  `[86BB] ${snap.totalSelections} selections, ${snap.totalDigestions} digestions, created ${snap.createdAt}`,
+  `[86BB] ${snap.totalSelections} selections, created ${snap.createdAt}`,
 );
 
 app.listen(config.port, () => {
   console.log(`[86BB] Server listening on http://localhost:${config.port}`);
   console.log(
-    `[86BB] Batch size: ${config.batchSize}, alpha: ${config.alphaSlow}, sensitivity: ${config.sensitivity}`,
+    `[86BB] alpha: ${config.alphaSlow}, sensitivity: ${config.sensitivity}, kick: ${config.kickScale}`,
   );
 });

@@ -13,7 +13,7 @@ import {
   zeroBioScores,
   BIO_SCORE_NAMES,
 } from "../../shared/bioScoreTypes.js";
-import { sendDigest, sendStable, sendBatchProgress } from "./oscClient.js";
+import { sendDigest, sendStable } from "./oscClient.js";
 import { loadState, saveState, appendOrderHistory } from "./persistence.js";
 
 type FoodProfileMap = Map<string, Float64Array>;
@@ -84,13 +84,10 @@ function computeBioScores(gut: Float64Array): BioScores {
 export class GutDynamicsEngine {
   private foodProfiles: FoodProfileMap;
   private stableGut: Float64Array;
-  private batch: Float64Array[];
-  private batchFoodIds: string[];
   private totalSelections: number;
-  private totalDigestions: number;
   private lastSelectionTimestamp: string;
-  private lastDigestionTimestamp: string;
   private createdAt: string;
+  private saveCounter: number;
 
   private stableBioScores: BioScores;
   private activeBioScores: BioScores;
@@ -100,35 +97,23 @@ export class GutDynamicsEngine {
     this.foodProfiles = loadFoodProfiles();
     console.log(`[GutDynamics] ${this.foodProfiles.size} food profiles loaded`);
 
+    this.saveCounter = 0;
+
     const saved = loadState();
     if (saved) {
       this.stableGut = new Float64Array(saved.stableGut);
-      this.batchFoodIds = saved.batchFoodIds;
       this.totalSelections = saved.totalSelections;
-      this.totalDigestions = saved.totalDigestions;
       this.lastSelectionTimestamp = saved.lastSelectionTimestamp;
-      this.lastDigestionTimestamp = saved.lastDigestionTimestamp;
       this.createdAt = saved.createdAt;
       this.stableBioScores = saved.stableBioScores;
       this.activeBioScores = saved.activeBioScores;
-
-      this.batch = [];
-      for (const fid of this.batchFoodIds) {
-        const p = this.foodProfiles.get(fid);
-        if (p) this.batch.push(p);
-      }
-
       console.log(
-        `[GutDynamics] Restored: ${this.totalSelections} selections, ${this.totalDigestions} digestions`,
+        `[GutDynamics] Restored: ${this.totalSelections} selections`,
       );
     } else {
       this.stableGut = new Float64Array(N_SPECIES);
-      this.batch = [];
-      this.batchFoodIds = [];
       this.totalSelections = 0;
-      this.totalDigestions = 0;
       this.lastSelectionTimestamp = new Date().toISOString();
-      this.lastDigestionTimestamp = new Date().toISOString();
       this.createdAt = new Date().toISOString();
       this.stableBioScores = zeroBioScores();
       this.activeBioScores = zeroBioScores();
@@ -141,8 +126,6 @@ export class GutDynamicsEngine {
   }
 
   addSelection(foodId: string): {
-    batchProgress: number;
-    digested: boolean;
     activeBioScores: BioScores;
     stableBioScores: BioScores;
     impulseMagnitude: number;
@@ -150,57 +133,17 @@ export class GutDynamicsEngine {
     const profile = this.foodProfiles.get(foodId);
     if (!profile) {
       return {
-        batchProgress: this.batch.length / config.batchSize,
-        digested: false,
         activeBioScores: this.activeBioScores,
         stableBioScores: this.stableBioScores,
         impulseMagnitude: 0,
       };
     }
 
-    this.batch.push(profile);
-    this.batchFoodIds.push(foodId);
     this.totalSelections++;
     this.lastSelectionTimestamp = new Date().toISOString();
 
-    const progress = this.batch.length / config.batchSize;
-    sendBatchProgress(progress);
-
-    appendOrderHistory({
-      timestamp: this.lastSelectionTimestamp,
-      foodId,
-      selectionNumber: this.totalSelections,
-      batchProgress: progress,
-    });
-
-    if (this.batch.length >= config.batchSize) {
-      return this.digest();
-    }
-
-    return {
-      batchProgress: progress,
-      digested: false,
-      activeBioScores: this.activeBioScores,
-      stableBioScores: this.stableBioScores,
-      impulseMagnitude: 0,
-    };
-  }
-
-  private digest(): {
-    batchProgress: number;
-    digested: boolean;
-    activeBioScores: BioScores;
-    stableBioScores: BioScores;
-    impulseMagnitude: number;
-  } {
-    const batchMean = new Float64Array(N_SPECIES);
-    for (const profile of this.batch) {
-      for (let i = 0; i < N_SPECIES; i++) batchMean[i] += profile[i];
-    }
-    for (let i = 0; i < N_SPECIES; i++) batchMean[i] /= this.batch.length;
-
     const diff = new Float64Array(N_SPECIES);
-    for (let i = 0; i < N_SPECIES; i++) diff[i] = batchMean[i] - this.stableGut[i];
+    for (let i = 0; i < N_SPECIES; i++) diff[i] = profile[i] - this.stableGut[i];
     const dist = norm(diff);
 
     const sensitiveFactor = 1.0 + config.sensitivity * dist;
@@ -212,13 +155,12 @@ export class GutDynamicsEngine {
     for (let i = 0; i < N_SPECIES; i++) {
       this.stableGut[i] =
         (1 - effectiveAlpha) * this.stableGut[i] +
-        effectiveAlpha * batchMean[i];
+        effectiveAlpha * profile[i];
     }
 
     const activeGut = new Float64Array(N_SPECIES);
     for (let i = 0; i < N_SPECIES; i++) {
-      activeGut[i] =
-        this.stableGut[i] + diff[i] * config.kickScale;
+      activeGut[i] = this.stableGut[i] + diff[i] * config.kickScale;
     }
 
     this.stableBioScores = computeBioScores(this.stableGut);
@@ -231,24 +173,26 @@ export class GutDynamicsEngine {
     }
     const impulseMagnitude = Math.sqrt(impulseSumSq);
 
-    this.totalDigestions++;
-    this.lastDigestionTimestamp = new Date().toISOString();
-
     sendDigest(this.activeBioScores, impulseMagnitude);
     sendStable(this.stableBioScores);
 
     console.log(
-      `[GutDynamics] Digest #${this.totalDigestions}: impulse=${impulseMagnitude.toFixed(3)}, alpha=${effectiveAlpha.toFixed(4)}, health_stable=${this.stableBioScores.health.toFixed(3)}`,
+      `[GutDynamics] #${this.totalSelections} ${foodId}: impulse=${impulseMagnitude.toFixed(3)}, alpha=${effectiveAlpha.toFixed(4)}, health=${this.stableBioScores.health.toFixed(3)}`,
     );
 
-    this.batch = [];
-    this.batchFoodIds = [];
+    appendOrderHistory({
+      timestamp: this.lastSelectionTimestamp,
+      foodId,
+      selectionNumber: this.totalSelections,
+    });
 
-    this.save();
+    this.saveCounter++;
+    if (this.saveCounter >= 5) {
+      this.save();
+      this.saveCounter = 0;
+    }
 
     return {
-      batchProgress: 0,
-      digested: true,
       activeBioScores: this.activeBioScores,
       stableBioScores: this.stableBioScores,
       impulseMagnitude,
@@ -260,23 +204,19 @@ export class GutDynamicsEngine {
       stableGut: Array.from(this.stableGut),
       stableBioScores: { ...this.stableBioScores },
       activeBioScores: { ...this.activeBioScores },
-      batchFoodIds: [...this.batchFoodIds],
+      batchFoodIds: [],
       totalSelections: this.totalSelections,
-      totalDigestions: this.totalDigestions,
+      totalDigestions: this.totalSelections,
       lastSelectionTimestamp: this.lastSelectionTimestamp,
-      lastDigestionTimestamp: this.lastDigestionTimestamp,
+      lastDigestionTimestamp: this.lastSelectionTimestamp,
       createdAt: this.createdAt,
     };
   }
 
   reset(): void {
     this.stableGut = new Float64Array(N_SPECIES);
-    this.batch = [];
-    this.batchFoodIds = [];
     this.totalSelections = 0;
-    this.totalDigestions = 0;
     this.lastSelectionTimestamp = new Date().toISOString();
-    this.lastDigestionTimestamp = new Date().toISOString();
     this.createdAt = new Date().toISOString();
     this.stableBioScores = zeroBioScores();
     this.activeBioScores = zeroBioScores();
