@@ -11,6 +11,7 @@ A long-duration art installation that translates collective food choices into an
 | Python 3 + tkinter | `brew install python-tk` | Powers the launcher app |
 | SuperCollider | [Download](https://supercollider.github.io/downloads) | Drag `SuperCollider.app` to `/Applications` |
 | sc3-plugins | [Download](https://supercollider.github.io/sc3-plugins/) | Copy to the SuperCollider Extensions folder* |
+| FluCoMa | `Quarks.install("FluCoMa")` in SC IDE | ML toolkit for LED prediction |
 
 \* On macOS: `~/Library/Application Support/SuperCollider/Extensions/`
 
@@ -72,15 +73,22 @@ brew install node python-tk
 #    - sc3-plugins:   https://supercollider.github.io/sc3-plugins/
 #      → copy to ~/Library/Application Support/SuperCollider/Extensions/
 
-# 4. Install npm dependencies
+# 4. Install FluCoMa Quark (run inside the SuperCollider IDE):
+#    Quarks.install("FluCoMa");
+#    // then recompile the class library (Cmd+Shift+L)
+
+# 5. Fetch audio samples (hosted as GitHub Release assets)
+./scripts/fetch-samples.sh
+
+# 6. Install npm dependencies
 cd app
 npm install
 cd ..
 
-# 5. Update av-engine/86bb_boot.scd audio device to match the Mac Mini output
+# 7. Update av-engine/86bb_boot.scd audio device to match the Mac Mini output
 #    (e.g. "Mac mini Speakers" or an external interface name)
 
-# 6. Build the launcher
+# 8. Build the launcher
 cd launcher
 ./build.sh
 ```
@@ -95,8 +103,9 @@ Then double-click `86BB Launcher.app` from Finder.
   - `src/shared/` — Types, data, and constants shared between client and server
 - `av-engine/` — SuperCollider audio/visual engine (synths, LEDs, FluCoMa ML)
   - `86bb_boot.scd` — Installation boot script (started by launcher)
-  - `86bb_main.scd` — LED test GUI (standalone)
+  - `86bb_led_trainer.scd` — FluCoMa MLP training workflow
   - `osc_responders.scd` — OSC handlers for Express ↔ SC communication
+  - `models/` — Trained FluCoMa MLP weights and normalizer state (checked in)
 - `launcher/` — Python + tkinter launcher app (bundles as macOS .app)
 - `analysis/` — Jupyter notebooks and derived data for microbiome research
 - `data/` — Persistent runtime state (gut-state.json, order-history.jsonl)
