@@ -57,7 +57,20 @@ s.waitForBoot({
 	"[86BB] SynthDefs loaded.".postln;
 
 	// ========== LED BUSES / SYNTHS ==========
-	~espAddr = NetAddr("192.168.8.175", 9000);
+	~espPort = SerialPort("/dev/tty.usbserial-0001", baudrate: 115200);
+	~slipSendOSC = { |port, addr, args|
+		var end = 0xC0, esc = 0xDB, escEnd = 0xDC, escEsc = 0xDD;
+		var raw = ([addr] ++ args).asRawOSC;
+		port.put(end);
+		raw.do { |byte|
+			var b = byte.bitAnd(0xFF);
+			case
+			{ b == end } { port.put(esc); port.put(escEnd) }
+			{ b == esc } { port.put(esc); port.put(escEsc) }
+			{ port.put(b) };
+		};
+		port.put(end);
+	};
 	~ledBus = Bus.control(s, ~numLEDs * 3);
 	~freqBus = Bus.control(s, ~numLEDs * 3);
 	~lfoGroup = Group.new;
@@ -79,7 +92,7 @@ s.waitForBoot({
 
 	OSCdef(\ledForward, { |msg|
 		var values = msg[3..];
-		try { ~espAddr.sendMsg("/all", *values) };
+		try { ~slipSendOSC.(~espPort, "/all", values) };
 		defer {
 			~numLEDs.do { |i|
 				var ri = i * 3;

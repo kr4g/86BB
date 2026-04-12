@@ -17,7 +17,20 @@
 ~numLEDs = 5;
 ~nBioScores = 8;
 ~nTransducerDims = 43;
-~espAddr = NetAddr("192.168.8.124", 9000);
+~espPort = SerialPort("/dev/tty.usbserial-0001", baudrate: 115200);
+~slipSendOSC = { |port, addr, args|
+	var end = 0xC0, esc = 0xDB, escEnd = 0xDC, escEsc = 0xDD;
+	var raw = ([addr] ++ args).asRawOSC;
+	port.put(end);
+	raw.do { |byte|
+		var b = byte.bitAnd(0xFF);
+		case
+		{ b == end } { port.put(esc); port.put(escEnd) }
+		{ b == esc } { port.put(esc); port.put(escEsc) }
+		{ port.put(b) };
+	};
+	port.put(end);
+};
 
 s.options.outDevice_(
 	"MacBook Pro Speakers"
@@ -108,7 +121,7 @@ s.waitForBoot({
 
 	OSCdef(\ledForward, { |msg|
 		var values = msg[3..];
-		try { ~espAddr.sendMsg("/all", *values) };
+		try { ~slipSendOSC.(~espPort, "/all", values) };
 		if(previewActive == true, {
 			defer {
 				~numLEDs.do { |i|
@@ -491,7 +504,8 @@ s.waitForBoot({
 		~burps.set(\gate, 0);
 		~wtBufs.do(_.free);
 		[~inputBuf, ~outputBuf, ~inputBufNormed, ~outputBufNormed].do(_.free);
-		try { ~espAddr.sendMsg("/all", *0.dup(~numLEDs * 3)) };
+		try { ~slipSendOSC.(~espPort, "/all", 0.dup(~numLEDs * 3)) };
+		try { ~espPort.close };
 		"[86BB Trainer] Closed.".postln;
 	});
 

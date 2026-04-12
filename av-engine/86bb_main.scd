@@ -4,7 +4,20 @@
 // =====================================================
 (
 ~numLEDs = 5;
-~espAddr = NetAddr("192.168.8.124", 9000);
+~espPort = SerialPort("/dev/tty.usbserial-0001", baudrate: 115200);
+~slipSendOSC = { |port, addr, args|
+	var end = 0xC0, esc = 0xDB, escEnd = 0xDC, escEsc = 0xDD;
+	var raw = ([addr] ++ args).asRawOSC;
+	port.put(end);
+	raw.do { |byte|
+		var b = byte.bitAnd(0xFF);
+		case
+		{ b == end } { port.put(esc); port.put(escEnd) }
+		{ b == esc } { port.put(esc); port.put(escEsc) }
+		{ port.put(b) };
+	};
+	port.put(end);
+};
 
 s.waitForBoot({
 	var basePath = thisProcess.nowExecutingPath.dirname;
@@ -67,7 +80,7 @@ s.waitForBoot({
 
 	OSCdef(\ledForward, { |msg|
 		var values = msg[3..];
-		try { ~espAddr.sendMsg("/all", *values) };
+		try { ~slipSendOSC.(~espPort, "/all", values) };
 		if(previewActive == true, {
 			defer {
 				~numLEDs.do { |i|
@@ -406,7 +419,7 @@ s.waitForBoot({
 				brightSliders[led].value = 0;
 				brightBoxes[led].value = 0;
 			};
-			try { ~espAddr.sendMsg("/all", *0.dup(~numLEDs * 3)) };
+			try { ~slipSendOSC.(~espPort, "/all", 0.dup(~numLEDs * 3)) };
 		}),
 		Button().states_([["Reset Defaults", Color.white, Color(0.3, 0.45, 0.65)]]).action_({
 			~numLEDs.do { |led|
@@ -451,7 +464,8 @@ s.waitForBoot({
 		~ledBus.free;
 		~freqBus.free;
 		~wtBufs.do(_.free);
-		try { ~espAddr.sendMsg("/all", *0.dup(~numLEDs * 3)) };
+		try { ~slipSendOSC.(~espPort, "/all", 0.dup(~numLEDs * 3)) };
+		try { ~espPort.close };
 		"[86BB] Closed.".postln;
 	});
 
