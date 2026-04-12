@@ -24,8 +24,8 @@ console.log(
   `[86BB] ${snap.totalSelections} selections, created ${snap.createdAt}`,
 );
 
-app.listen(config.port, () => {
-  console.log(`[86BB] Server listening on http://localhost:${config.port}`);
+app.listen(config.port, "0.0.0.0", () => {
+  console.log(`[86BB] Server listening on 0.0.0.0:${config.port}`);
   console.log(
     `[86BB] alpha: ${config.alphaSlow}, sensitivity: ${config.sensitivity}, kick: ${config.kickScale}`,
   );
