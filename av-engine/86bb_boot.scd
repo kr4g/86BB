@@ -28,7 +28,7 @@ s.waitForBoot({
 	var sigSize = 1024;
 	var sigs = Array.newClear(4);
 	var sqSig;
-	var allParams, channelLabels, nOutputDims;
+	var allParams, channelLabels, nLedOutputDims, nTransducerDims, nOutputDims;
 
 	"[86BB] Server booted.".postln;
 
@@ -92,10 +92,26 @@ s.waitForBoot({
 	s.sync;
 	"[86BB] 5 LED synths ready (preview window open).".postln;
 
+	// ========== TRANSDUCER SYNTHS ==========
+	~drips = Synth(\drips, [\out, 0, \wtBufStart, ~wtBufStart, \gain, -96]);
+	~purrs = Synth(\purrs, [\out, 0, \wtBufStart, ~wtBufStart, \gain, -96]);
+	~burps = Synth(\burps, [\out, 0, \gain, -96]);
+	s.sync;
+	"[86BB] Transducer synths ready (drips, purrs, burps).".postln;
+
 	// ========== PARAM PACKING (must match trainer) ==========
 	allParams = [\freq, \wave, \noiseFreq, \noise, \min, \max, \amFreq, \amWave, \amDepth];
 	channelLabels = ["R", "G", "B"];
-	nOutputDims = (~numLEDs * ((allParams.size * 3) + 1)) + 4;
+	nLedOutputDims = (~numLEDs * ((allParams.size * 3) + 1)) + 4;
+
+	~dripsFlat = [\prob1, \prob2, \wtPos1, \wtPos2, \amRate1, \amRate2, \amMul1, \amMul2,
+		\freqWtPos1, \freqWtPos2, \freqRate1, \freqRate2, \sweepLo, \sweepHi, \hpFreq, \gain];
+	~purrsFlat = [\freqMin1, \freqMin2, \freqMax1, \freqMax2, \freqWtPos1, \freqWtPos2,
+		\freqRate1, \freqRate2, \width1, \width2, \wtPos1, \wtPos2,
+		\amRate1, \amRate2, \amMul1, \amMul2, \lpFreq1, \lpFreq2, \gain];
+	~burpsFlat = [\trigRate1, \trigRate2, \fund, \sweepHiMin, \sweepHiMax, \formantBW, \combMix, \gain];
+	nTransducerDims = ~dripsFlat.size + ~purrsFlat.size + ~burpsFlat.size;
+	nOutputDims = nLedOutputDims + nTransducerDims;
 
 	~applyPrediction = { |arr|
 		var idx = 0;
@@ -114,6 +130,14 @@ s.waitForBoot({
 		~collector.set(\rateMultiplier, arr[idx + 1]);
 		~collector.set(\minRate, arr[idx + 2]);
 		~collector.set(\maxRate, arr[idx + 3]);
+		idx = idx + 4;
+
+		[[\drips, ~dripsFlat, ~drips], [\purrs, ~purrsFlat, ~purrs], [\burps, ~burpsFlat, ~burps]].do { |triple|
+			triple[1].do { |param|
+				triple[2].set(param, arr[idx]);
+				idx = idx + 1;
+			};
+		};
 	};
 
 	// ========== FLUCOMA MODEL ==========
@@ -127,18 +151,30 @@ s.waitForBoot({
 	~outputBufNormed = Buffer.alloc(s, nOutputDims);
 	s.sync;
 
-	if(File.exists(modelsPath +/+ "led_mlp.json"), {
-		"[86BB] Loading FluCoMa LED model...".postln;
-		~mlp.read(modelsPath +/+ "led_mlp.json", {
-			~inputNorm.read(modelsPath +/+ "led_input_norm.json", {
-				~outputNorm.read(modelsPath +/+ "led_output_norm.json", {
+	if(File.exists(modelsPath +/+ "av_mlp.json"), {
+		"[86BB] Loading FluCoMa AV model (LED + transducers)...".postln;
+		~mlp.read(modelsPath +/+ "av_mlp.json", {
+			~inputNorm.read(modelsPath +/+ "av_input_norm.json", {
+				~outputNorm.read(modelsPath +/+ "av_output_norm.json", {
 					~modelLoaded = true;
-					"[86BB] FluCoMa LED model ready.".postln;
+					"[86BB] FluCoMa AV model ready.".postln;
 				});
 			});
 		});
 	}, {
-		"[86BB] No LED model found — running without prediction.".postln;
+		if(File.exists(modelsPath +/+ "led_mlp.json"), {
+			"[86BB] No AV model found. Loading legacy LED-only model...".postln;
+			~mlp.read(modelsPath +/+ "led_mlp.json", {
+				~inputNorm.read(modelsPath +/+ "led_input_norm.json", {
+					~outputNorm.read(modelsPath +/+ "led_output_norm.json", {
+						~modelLoaded = true;
+						"[86BB] Legacy LED-only model loaded (transducers will not be predicted).".postln;
+					});
+				});
+			});
+		}, {
+			"[86BB] No model found — running without prediction.".postln;
+		});
 	});
 
 	~predicting = false;
@@ -168,6 +204,6 @@ s.waitForBoot({
 	"[86BB] OSC responders loaded.".postln;
 
 	s.sync;
-	("[86BB] Ready. Model:" + if(~modelLoaded == true, "loaded", "none") ++ ". Output dims:" + nOutputDims ++ ".").postln;
+	("[86BB] Ready. Model:" + if(~modelLoaded == true, "loaded", "none") ++ ". Output dims:" + nOutputDims + "(LED:" + nLedOutputDims + "+ Trans:" + nTransducerDims ++ ").").postln;
 });
 )
