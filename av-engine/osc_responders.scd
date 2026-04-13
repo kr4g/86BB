@@ -111,7 +111,7 @@ OSCdef(\batchProgress, { |msg|
 		var targets, waypoint, ranges;
 
 		ranges = nScores.collect { |i|
-			var vals = ~clusterBioScores.collect(_[i]);
+			var vals = ~clusterBioScores.collect({ |c| c[i] });
 			[vals.minItem, vals.maxItem]
 		};
 
