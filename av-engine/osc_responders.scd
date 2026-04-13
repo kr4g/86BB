@@ -102,5 +102,71 @@ OSCdef(\batchProgress, { |msg|
 	};
 }).play(SystemClock);
 
-"[86BB] OSC responders registered (digest, stable, batch-progress, decay+predict @30fps).".postln;
+~demoRoutine.stop;
+~demoRoutine = nil;
+
+~demoStart = { |orbitSpeed = 0.005, driftScale = 0.0003|
+	~demoRoutine.stop;
+	~demoRoutine = Routine({
+		var targets, waypoint, ranges;
+
+		ranges = nScores.collect { |i|
+			var vals = ~clusterBioScores.collect(_[i]);
+			[vals.minItem, vals.maxItem]
+		};
+
+		waypoint = ~clusterBioScores.choose.copy;
+		targets = ~clusterBioScores.choose.copy;
+		~stable = waypoint.copy;
+		~active = waypoint.copy;
+		~predictFromBioScores.(~active);
+
+		{
+			var nearest = ~findNearestClusters.(waypoint);
+			("[86BB] Demo: starting near C" ++ nearest[0]
+				++ " " ++ ~clusterLabels[nearest[0]]).postln;
+		}.value;
+
+		inf.do {
+			var dist = 0;
+			nScores.do { |i|
+				dist = dist + ((waypoint[i] - targets[i]).squared)
+			};
+			if(dist.sqrt < 0.05, {
+				var nearest = ~findNearestClusters.(waypoint);
+				if(0.5.coin, {
+					targets = ~clusterBioScores.choose.copy;
+				}, {
+					var a = ~clusterBioScores.choose;
+					var b = ~clusterBioScores.choose;
+					var t = rrand(0.2, 0.8);
+					targets = nScores.collect { |i| a[i] + ((b[i] - a[i]) * t) };
+				});
+				("[86BB] Demo: drifting from C" ++ nearest[0]
+					++ " " ++ ~clusterLabels[nearest[0]]
+					++ " → new waypoint").postln;
+			});
+			nScores.do { |i|
+				waypoint[i] = waypoint[i] + ((targets[i] - waypoint[i]) * orbitSpeed);
+				waypoint[i] = waypoint[i] + rrand(driftScale.neg, driftScale);
+				waypoint[i] = waypoint[i].clip(ranges[i][0], ranges[i][1]);
+			};
+			~stable = waypoint.copy;
+			(1/30).wait;
+		};
+	}).play(SystemClock);
+	"[86BB] Demo mode ON — orbiting bio-score space.".postln;
+};
+
+~demoStop = {
+	~demoRoutine.stop;
+	~demoRoutine = nil;
+	"[86BB] Demo mode OFF.".postln;
+};
+
+OSCdef(\demo, { |msg|
+	if(msg[1].asInt == 1, { ~demoStart.() }, { ~demoStop.() });
+}, '/86bb/demo');
+
+"[86BB] OSC responders registered (digest, stable, batch-progress, demo, decay+predict @30fps).".postln;
 )
