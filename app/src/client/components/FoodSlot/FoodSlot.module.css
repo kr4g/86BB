@@ -9,6 +9,7 @@
   user-select: none;
   will-change: opacity, transform;
   transition: background 0.1s, border-color 0.1s;
+  overflow: hidden;
 }
 
 .label {
@@ -18,5 +19,4 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   text-align: center;
-  white-space: nowrap;
 }
